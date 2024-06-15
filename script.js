@@ -523,8 +523,266 @@
     
 // })
 
+// const student={
+//     name:"shresth",
+//     marks:94.4,
+//     printMarks: function(){
+//         console.log("marks=",this.marks);
+//     }
+// }
 
+// const employe={
+//     calcTax(){
+//         console.log("tax is 10%")
+//     }
+// }
+//  const karan={
+//     salary: 50000,
+//     calcTax(){
+//         console.log("tax is 20%")
+//     }
+//  };
+//  karan.__proto__=employe;
 
+//  //classes
+//  class toyotaCar{
+//     constructor(brand){//at the time of initialisation brand argument is passed
+//         console.log("creating new object");
+//         this.brand=brand;
+//     }
+//     start(){
+//         console.log("start")
+//     }
+//     stop(){
+//         console.log("stop")
+//     }
+    
+//  }
 
+//  let fortuner=new toyotaCar("fortuner");//cnstructor is invoked
+//  console.log(fortuner);
+//  let lexus=new toyotaCar("lexus");
+ 
+//Inheritance
+// class Parent{
+//     hello(){
+//         console.log("hello");
+//     }
+// }
+// class Child extends Parent{}
+// let obj= new Child();
 
+// class person{
+//     constructor(name){
+//         // console.log("species");
+//         this.name=name;
+//         this.species="homo sapiens";
+//         // console.log("homo sapeins");
+//     }
+//     eat(){
+//         console.log("eat")
+//     }
+//     // sleep(){
+//     //     console.log("sleep");
+//     // }
+// }
+// class engineer extends person{
+//     constructor(name){
+//         // console.log("branch");
+//         super(name);//to invoke parent class constructor
+//         // this.branch=branch;
+//     }
+//      work(){
+//          super.eat();
+//          console.log("work");
+//      }
+// }
+// let obj=new engineer("shresth");
 
+//lets practice
+//Q-1
+// let Data="secret info.";
+// class User{
+//     constructor(name,email){
+//         this.name=name;
+//         this.email=email;
+//     }
+
+//     viewData(){
+//         console.log("data=",Data);
+//     }
+// }
+ 
+// //Q-2
+// class Admin extends User{
+//     constructor(name,email){
+//         super(name,email);
+//     }
+//    editData(){
+//      Data="new value";
+//    }
+// }
+
+// let student1=new User("shresht","abc@gamil.com");
+// let student2=new User("jo rkhlo","bcd@gmail.com");
+
+// let teacher=new User("dean","dean@gmail.com")
+
+// let admin1= new Admin("admin","admin@gamil.com") 
+
+// function hello(){
+//    console.log("hello"); 
+// }
+// setTimeout(hello,2000)
+// console.log("one");
+// console.log("one");
+// setTimeout(()=>{
+//     console.log("three");
+// },2000); 
+// console.log("one");
+// console.log("one");
+
+// function sum(a,b){
+//  console.log(a+b);
+// }
+// function calculator(a,b,sumCallback){
+//     sumCallback(a,b);
+// }
+// calculator(3,3,sum);
+
+// function getData(dadaId,getNextData){ // it takes 2 seconds
+//     setTimeout(()=>{
+//         console.log("data",dadaId);
+//         if(getNextData)
+//             {
+//         getNextData();
+//             }
+//     },2000);
+// }
+// //callback hell
+// getData(1,()=>{
+//     console.log("getting data 2...");
+//     getData(2,()=>{
+//         console.log("getting data 3...")
+//         getData(3);
+//     });
+// });
+// getData(2);
+// getData(3);
+
+//Promises 
+// let promise=new Promise((resolve,reject)=>{
+//     console.log("I am a promise");
+//      //resolve("success");
+//     //reject("some error");
+// });
+
+//Use of promises in Data API 
+// function getData(dataId,getNextData){
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             console.log("data",dataId);
+//             resolve("success");//success after dataId is displayed
+//             if(getNextData)
+//               getNextData();
+//         },5000);
+//     });
+// }
+
+//.catch and .then
+// const getPromise=()=>{
+//     return new Promise((resolve,reject)=>{
+//         console.log("i am a promise");
+//          resolve("success");
+//         //reject("network error");
+//     })
+// }
+// let promise=getPromise();
+// promise.then((res)=>{
+//     console.log("promise fulfilled",res);
+// })
+// promise.catch((err)=>{
+//     console.log("error has occurred",err);
+// })
+
+//Promise Chain
+// function async(){
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             console.log("data1");
+//             resolve("sucess");
+//         },4000);
+//     });
+// }
+
+// function async2(){
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             console.log("data2");
+//             resolve("sucess");
+//         },4000);
+//     });
+// }
+// console.log("fetching data1...");
+// let p1=async();
+// p1.then((res)=>{
+//     console.log(res);
+// })
+// console.log("fetching data2...");
+// let p2=async2();
+// p2.then((res)=>{
+//     console.log(res);
+// })
+//Data 1 and Data 2 is fetched simultaneously in the above code (709-735)
+
+//Resolving the above issue in the below code using promise chain
+// function async(){
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             console.log("data1");
+//             resolve("sucess");
+//         },4000);
+//     });
+// }
+
+// function async2(){
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             console.log("data2");
+//             resolve("sucess");
+//         },4000);
+//     });
+// }
+// console.log("fetching data1...");
+// let p1=async();
+// p1.then((res)=>{
+//     console.log(res);
+//     console.log("fetching data2...");
+//     let p2=async2();
+//     p2.then((res)=>{
+//         console.log(res);
+//     })
+// })
+
+//solving callback delay using promise chaining of .then
+// function getData(dataId){
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             console.log("data",dataId);
+//             resolve("success");
+//         },2000);
+//     })
+// }
+// getData(1)
+//  .then((res)=>{
+//     return getData(2);
+// }).then((res)=>{
+//     return getData(3);
+// }).then((res)=>{
+//     console.log(res);
+// })
+
+//Async-Await
+async function hello(){
+    console.log("hello");
+}
